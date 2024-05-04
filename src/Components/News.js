@@ -1,0 +1,283 @@
+import React, { Component } from 'react'
+import Newsitem from './Newsitem'
+
+export class News extends Component {
+  articles = [
+
+    {
+      "source": {
+        "id": "business-insider",
+        "name": "Business Insider"
+      },
+      "author": "Thibault Spirlet",
+      "title": "3 women got HIV after 'vampire facial' at unlicensed medical spa: CDC - Business Insider",
+      "description": "Three women contracted HIV after getting \"vampire facials\" at an unlicensed medical spa in New Mexico, the CDC reported, the first cases of this kind.",
+      "url": "https://www.businessinsider.com/3-women-got-hiv-vampire-facial-unlicensed-medical-spa-cdc-2024-4",
+      "urlToImage": "https://i.insider.com/662f86baec0c696569fe8f98?width=1200&format=jpeg",
+      "publishedAt": "2024-04-29T12:18:00Z",
+      "content": "Three women contracted HIV after getting \"vampire facial\" procedures at an unlicensed medical spa in New Mexico, according to federal authorities.\r\nThe Centers for Disease Control and Prevention said… [+2379 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Larry Madowo, Irene Nasser, Helen Regan",
+      "title": "Dozens killed after dam bursts in Kenya as weeks of heavy rain devastate region - CNN",
+      "description": "At least 35 people have been killed and dozens of others are missing after a dam burst in southern Kenya, sweeping away homes and vehicles as the country grapples with weeks of heavy rains and devastating flash floods.",
+      "url": "https://www.cnn.com/2024/04/29/africa/kenya-floods-mai-mahiu-intl-hnk/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/larry-5-1.JPG?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2024-04-29T12:14:00Z",
+      "content": "At least 35 people have been killed and dozens of others are missing after a dam burst in southern Kenya, sweeping away homes and vehicles as the country grapples with weeks of heavy rains and devast… [+4363 chars]"
+    },
+    {
+      "source": {
+        "id": "associated-press",
+        "name": "Associated Press"
+      },
+      "author": "JOSEF FEDERMAN, SAMY MAGDY",
+      "title": "Israeli officials concerned about possible ICC arrest warrants as pressure mounts over war in Gaza - The Associated Press",
+      "description": "Israeli officials appear increasingly concerned that the International Criminal Court may issue arrest warrants against the country’s leaders. Their concerns come as international pressure mounts over the war in Gaza. Airstrikes overnight into Monday killed 2…",
+      "url": "https://apnews.com/article/israel-hamas-war-news-04-29-2024-d9b215f4aa1a745cdada48112d0fe4b8",
+      "urlToImage": "https://dims.apnews.com/dims4/default/1fa23bd/2147483647/strip/true/crop/3378x1900+0+176/resize/1440x810!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F9e%2F7b%2Ff09800ea00884fc87ef66d7a5c60%2F533e6a052c754247bef070113a6b483d",
+      "publishedAt": "2024-04-29T12:07:00Z",
+      "content": "JERUSALEM (AP) Israeli officials appeared increasingly concerned that the International Criminal Court may issue arrest warrants against the countrys leaders, as international pressure mounts over th… [+5617 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "WESH Orlando"
+      },
+      "author": "Hayley Crombleholme",
+      "title": "Texans Tank Dell among 10 people shot at Sanford, Florida bar - WESH 2 Orlando",
+      "description": "Houston Texans wide receiver Tank Dell was among those injured in the shooting, according to the team.",
+      "url": "https://www.wesh.com/article/tank-dell-sanford-shooting-florida/60634592",
+      "urlToImage": "https://kubrick.htvapps.com/htv-prod-media.s3.amazonaws.com/images/screenshot-2024-04-29-075154-662f89e54159e.png?crop=0.985xw:1.00xh;0.00816xw,0&resize=1200:*",
+      "publishedAt": "2024-04-29T12:02:00Z",
+      "content": "SANFORD, Fla. —Seminole County Sheriff's Detectives said ten people are recovering after a shooting in Sanford. This happened just after midnight at Cabana Live on Carraway Place.\r\nDeputies were firs… [+3107 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "BBC News"
+      },
+      "author": null,
+      "title": "French actor Gérard Depardieu in custody over sexual assault allegations - BBC.com",
+      "description": "French actor Gérard Depardieu is summoned to a police station in Paris, local media report.",
+      "url": "https://www.bbc.com/news/world-europe-68920563",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/417C/production/_132746761_gettyimages-1246188797.jpg",
+      "publishedAt": "2024-04-29T11:46:14Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "the-washington-post",
+        "name": "The Washington Post"
+      },
+      "author": "Anthony Faiola, Beatriz Ríos",
+      "title": "Spain’s Pedro Sánchez to stay in power after threatening to resign - The Washington Post",
+      "description": "Pedro Sánchez, champion of the left, kept Spain in suspense for five days as he mulled resigning over a probe into his wife that he says the far right concocted.",
+      "url": "https://www.washingtonpost.com/world/2024/04/29/spain-pedro-sanchez-resignation-corruption/",
+      "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/WX2ZLL5AJH6JFWSXAMFVS2IC2I_size-normalized.jpg&w=1440",
+      "publishedAt": "2024-04-29T11:34:44Z",
+      "content": "For the past five days, Spanish Prime Minister Pedro Sánchez, one of the continents most influential liberal voices, had his nation gripped by a question: Would he, or wouldnt he, resign?\r\nThe bizarr… [+7503 chars]"
+    },
+    {
+      "source": {
+        "id": "ars-technica",
+        "name": "Ars Technica"
+      },
+      "author": "Jeremy Reimer",
+      "title": "First post: A history of online public messaging - Ars Technica",
+      "description": "Come with us on a tour of messaging platforms and their evolution over the years.",
+      "url": "https://arstechnica.com/gadgets/2024/04/first-post-a-history-of-online-public-messaging/",
+      "urlToImage": "https://cdn.arstechnica.net/wp-content/uploads/2024/04/history-of-public-messaging-760x380.jpg",
+      "publishedAt": "2024-04-29T11:30:13Z",
+      "content": "29\r\nPeople have been leaving public messages since the first artists painted hunting scenes on cave walls. But it was the invention of electricity that forever changed the way we talked to each other… [+2932 chars]"
+    },
+    {
+      "source": {
+        "id": "bloomberg",
+        "name": "Bloomberg"
+      },
+      "author": null,
+      "title": "Musk Wins Tentative Clearance for Tesla Driving System in China - Bloomberg",
+      "description": "Elon Musk’s quick visit to China paid immediate dividends, with Tesla Inc. receiving in-principle approval from government officials to deploy its driver-assistance system in the world’s biggest auto market.",
+      "url": "https://www.bloomberg.com/news/articles/2024-04-29/tesla-clears-key-china-fsd-hurdle-with-baidu-mapping-deal",
+      "urlToImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ioqr3f5CJ1fE/v1/1200x800.jpg",
+      "publishedAt": "2024-04-29T11:24:53Z",
+      "content": "Elon Musks quick visit to China paid immediate dividends, with Tesla Inc. receiving in-principle approval from government officials to deploy its driver-assistance system in the worlds biggest auto m… [+419 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "13WHAM-TV"
+      },
+      "author": "WHAM",
+      "title": "Monroe County D.A. releases apology video after traffic stop controversy - 13WHAM-TV",
+      "description": "Monroe County District Attorney Sandra Doorley has issued a video statement - her first since the controversy surrounding her not pulling over for a traffic sto",
+      "url": "https://13wham.com/news/local/monroe-county-da-releases-apology-video-after-traffic-stop-controversy",
+      "urlToImage": "https://13wham.com/resources/media/5a268d46-8a8f-48d0-a3ff-9ed7cbb460ef-large16x9_doorley2.JPG",
+      "publishedAt": "2024-04-29T10:47:50Z",
+      "content": "Rochester, N.Y. Monroe County District Attorney Sandra Doorley has issued a video statement - her first since the controversy surrounding her not pulling over for a traffic stop in Webster. \r\nDoorley… [+2878 chars]"
+    },
+    {
+      "source": {
+        "id": "associated-press",
+        "name": "Associated Press"
+      },
+      "author": "CHRISTOPHER WEBER, CAROLYN THOMPSON, MARGERY BECK",
+      "title": "Anti-war protests roil US college campuses ahead of graduation - The Associated Press",
+      "description": "Protests are roiling college campuses across the U.S. as upcoming graduation ceremonies are threatened by disruptive demonstrators, with students and others sparring over the war in Gaza and its mounting death toll. Many campuses were largely quiet over the w…",
+      "url": "https://apnews.com/article/israel-palestinian-campus-student-protests-war-19ed919ff6ff9573a8add4ec67e26181",
+      "urlToImage": "https://dims.apnews.com/dims4/default/771e220/2147483647/strip/true/crop/5000x2813+0+260/resize/1440x810!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Ffc%2F55%2F6bfbd967150c069f0bc4fd1f1494%2Fe24775ae92e54af6b9fa23d94749adce",
+      "publishedAt": "2024-04-29T10:47:00Z",
+      "content": "LOS ANGELES (AP) Protests are roiling college campuses across the U.S. as upcoming graduation ceremonies are threatened by disruptive demonstrators, with students and others sparring over the war in … [+9304 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "NBCSports.com"
+      },
+      "author": "Josh Alper",
+      "title": "Cowboys agree to terms with Ezekiel Elliott - NBC Sports",
+      "description": "Elliott is headed back to Dallas after one year with the Patriots.",
+      "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/cowboys-agree-to-terms-with-ezekiel-elliott",
+      "urlToImage": "https://nbcsports.brightspotcdn.com/dims4/default/89517a2/2147483647/strip/true/crop/5737x3227+0+0/resize/1440x810!/quality/90/?url=https%3A%2F%2Fnbc-sports-production-nbc-sports.s3.us-east-1.amazonaws.com%2Fbrightspot%2F34%2Fe8%2F95f8cdb943c49a362e75b8e4e380%2Fhttps-delivery-gettyimages.com%2Fdownloads%2F1712276145",
+      "publishedAt": "2024-04-29T10:46:44Z",
+      "content": "The Cowboys havent signed Dak Prescott, CeeDee Lamb, or Micah Parsons to an extension, but they have reached a deal with another longtime member of the team. \r\nNFL Media reports that the Cowboys have… [+693 chars]"
+    },
+    {
+      "source": {
+        "id": "abc-news",
+        "name": "ABC News"
+      },
+      "author": "Rachel Scott, Will Steakin, Hannah Demissie",
+      "title": "Trump and DeSantis meet to 'bury the hatchet' after 2024 primary fight: Sources - ABC News",
+      "description": "Florida's governor has signaled he plans to fundraise for his former rival.",
+      "url": "https://abcnews.go.com/Politics/trump-desantis-meet-bury-hatchet-after-2024-primary/story?id=109731949",
+      "urlToImage": "https://i.abcnewsfe.com/a/3978fcfe-719f-4dfe-9e4f-43a7f6b8cdec/trump-desantis-file-gty-ml-240428_1714336843224_hpMain_16x9.jpg?w=1600",
+      "publishedAt": "2024-04-29T10:28:41Z",
+      "content": "Florida Gov. Ron DeSantis met privately with former President Donald Trump in Miami on Sunday morning, multiple sources tell ABC News, marking the latest development in the pair's rocky relationship … [+1361 chars]"
+    },
+    {
+      "source": {
+        "id": "espn",
+        "name": "ESPN"
+      },
+      "author": "NFL Nation reporters",
+      "title": "Biggest 2024 NFL post-draft questions for all 32 teams - ESPN",
+      "description": "The 2024 NFL draft is over, but can the rookies make an impact? We answer lingering questions for all 32 teams.",
+      "url": "https://www.espn.com/nfl/story/_/page/postnfldraftquestions24/nfl-draft-2024-biggest-post-draft-questions-32-teams",
+      "urlToImage": "https://a3.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0428%2Fr1325889_1296x729_16%2D9.jpg",
+      "publishedAt": "2024-04-29T10:00:00Z",
+      "content": "Apr 29, 2024, 06:00 AM ET\r\nThe 2024 NFL draft wrapped up Saturday in Detroit. The historic weekend, which set a record for fan attendance, saw six quarterback selections in the first 12 picks -- tyin… [+21572 chars]"
+    },
+    {
+      "source": {
+        "id": "fox-news",
+        "name": "Fox News"
+      },
+      "author": "Melissa Rudy",
+      "title": "Cancer trends revealed, including most common types of the disease and biggest risk factors - Fox News",
+      "description": "USAFacts, a Washington-based nonprofit that compiles and reports on government data, took a deep dive into the latest cancer data to identify trends. Here are the key findings.",
+      "url": "https://www.foxnews.com/health/cancer-trends-revealed-including-common-types-disease-and-biggest-risk-factors",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2024/04/cancer-types.jpg",
+      "publishedAt": "2024-04-29T08:30:00Z",
+      "content": "Almost 40% of Americans will receive a cancer diagnosis\r\n at some point in their lifetime but certain types are more common than others, statistics show.\r\nUSAFacts, a Washington-based\r\n nonprofit tha… [+5844 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Yahoo Entertainment"
+      },
+      "author": "Jennifer Schonberger",
+      "title": "Investors confused about the Fed's rate path look to Jay Powell for answers - Yahoo Finance",
+      "description": "Investors are hoping Fed Chair Jerome Powell will provide some answers this week about everything from the unpredictable path of inflation to whether 2024...",
+      "url": "https://finance.yahoo.com/news/investors-confused-about-the-feds-rate-path-look-to-jay-powell-for-answers-080058471.html",
+      "urlToImage": "https://s.yimg.com/ny/api/res/1.2/buKFEamrEhVSTLAjbapWaA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTU-/https://s.yimg.com/os/creatr-uploaded-images/2024-03/310cd0c0-e6fa-11ee-b74b-ca1156700db0",
+      "publishedAt": "2024-04-29T08:00:58Z",
+      "content": "Federal Reserve officials face a lot of questions as they convene for their two-day policy meeting this week, and investors are hoping Chair Jerome Powell will provide some answers.\r\nHas the cooling … [+6259 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Yahoo Entertainment"
+      },
+      "author": "Jason Owens",
+      "title": "NBA playoffs: Anthony Edwards outshines Devin Booker, Kevin Durant to secure Timberwolves sweep of Suns - Yahoo Sports",
+      "description": "Durant and Booker combined for 82 points. But Edwards again proved too much for the Suns to overcome.",
+      "url": "https://sports.yahoo.com/nba-playoffs-anthony-edwards-outshines-devin-booker-kevin-durant-to-secure-timberwolves-sweep-of-suns-042906979.html",
+      "urlToImage": "https://s.yimg.com/ny/api/res/1.2/ZIy_RfPQgjqnfZAVF2QHuw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2024-04/7474cb50-05dc-11ef-a775-e3c535e27cfb",
+      "publishedAt": "2024-04-29T06:14:00Z",
+      "content": "With their season on the line the Phoenix Suns' starts shone their brightest on Sunday against the Minnesota Timberwolves.\r\nIt wasn't enough.\r\nLed by their own All-Stars Anthony Edwards and Karl-Anth… [+4051 chars]"
+    }
+  ]
+
+
+  constructor() {
+    super();
+    console.log("Hello i am a constructor.")
+    this.state = {
+      articles: this.articles,
+      loading: false,
+      page: 1
+    }
+  }
+
+  async componentDidMount() {
+    let url = "https://newsapi.org/v2/everything?q=apple&from=2024-05-03&to=2024-05-03&sortBy=popularity&apiKey=2085a3d29d5345329c82a93abba84de9&page=1pageSize=20"
+    let data = await fetch(url);
+    let parsedData = await data.json()
+    console.log(parsedData);
+    this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults })
+  }
+  handlePreviousClick = async () => {
+    console.log("Previous")
+    let url = `https://newsapi.org/v2/everything?q=apple&from=2024-05-03&to=2024-05-03&sortBy=popularity&apiKey=2085a3d29d5345329c82a93abba84de9${this.state.page - 1}&pageSize=20`;
+    let data = await fetch(url);
+    let parsedData = await data.json()
+    console.log(parsedData);
+    this.setState({
+      page: this.state.page - 1,
+      articles: parsedData.articles
+    })
+  }
+  handleNextClick = async () => {
+    console.log("Next")
+    if (this.state.page + 1 > Math.ceil(this.state.totalResults / 20)) {
+
+    }
+    else {
+      let url = `https://newsapi.org/v2/everything?q=apple&from=2024-05-03&to=2024-05-03&sortBy=popularity&apiKey=2085a3d29d5345329c82a93abba84de9${this.state.page + 1}&pageSize=20`;
+      let data = await fetch(url);
+      let parsedData = await data.json()
+      console.log(parsedData);
+      this.setState({
+        page: this.state.page + 1,
+        articles: parsedData.articles
+      })
+    }
+  }
+  render() {
+    return (
+      <div className='container my-3'>
+        <h1>News Hub - Top Headlines</h1>
+        <div className='row'>
+          {this.state.articles.map((element) => {
+            return <div className='col-md-3' key={element.url}>
+              <Newsitem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 88) : ""} imageUrl={element.urlToImage} newsUrl={element.url} />
+            </div>
+          })}
+        </div>
+        <div className="container d-flex justify-content-between">
+          <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePreviousClick}>&larr; Previous</button>
+          <button type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
+        </div>
+      </div>
+
+    )
+  }
+}
+
+export default News
