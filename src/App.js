@@ -12,7 +12,7 @@ import {
 
 
 export default class App extends Component {
-  pageSize=6
+  pageSize=5
   render() {
     return (
       <div>
@@ -20,7 +20,7 @@ export default class App extends Component {
         <Navbar/>
         
         <Routes>
-        <Route exact path="/newsApp" element={<News key="general" pageSize={this.pageSize} country="us" category="general"/>} />
+        <Route exact path="/home" element={<News key="general" pageSize={this.pageSize} country="us" category="general"/>} />
         <Route exact path="/business" element={<News key="business" pageSize={this.pageSize} country="us" category="business"/>}/>
         <Route exact path="/entertainment" element={<News key="entertainment" pageSize={this.pageSize} country="us" category="entertainment"/>}/>
         <Route exact path="/health" element={<News key="health" pageSize={this.pageSize} country="us" category="health"/>}/>
