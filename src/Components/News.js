@@ -26,8 +26,7 @@ export class News extends Component {
     this.state = {
 
       articles: [],
-      // articles: this.articles,
-      loading: true,
+      loading: false,
       page: 1,
       totalResults: 0
 
@@ -46,10 +45,10 @@ export class News extends Component {
     this.props.setProgress(70);
     console.log(parsedData);
     this.setState({
-      page: this.state.page - 1,
       articles: parsedData.articles,
-      loading: false,
-      totalResults: 0
+      totalResults: parsedData.totalResults,
+      loading: false
+      
     })
     this.props.setProgress(100);
   }
@@ -64,20 +63,20 @@ export class News extends Component {
     this.setState({ page: this.state.page + 1 });
     this.updateNews();
   }
-  fetchMoreData=async()=>{
-    this.setState({page: this.state.page +1});
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
-    // this.setState({ loading: true });
+  fetchMoreData = async () => {
+    const nextPage = this.state.page + 1;
+    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${nextPage}&pageSize=${this.props.pageSize}`;
+    this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
-    console.log(parsedData);
     this.setState({
-      page: this.state.page - 1,
       articles: this.state.articles.concat(parsedData.articles),
-      // loading: false,
-      totalResults: 0
-    })
-  }
+      totalResults: parsedData.totalResults,
+      page: nextPage,
+      loading: false
+    });
+  };
+  
 
   render() {
 
@@ -95,8 +94,7 @@ export class News extends Component {
           <div className="row">
             {this.state.articles.map((element) => {
               // {!this.state.loading && this.state.articles.length > 0 && this.state.articles.map((element) => {
-              return (
-                <div className="col-md-4" key={element.url}>
+              return <div className="col-md-4" key={element.url}>
                   <Newsitem
                     title={element.title ? element.title.slice(0, 45) : ""}
                     description={
@@ -109,7 +107,7 @@ export class News extends Component {
                     source={element.source.name}
                   />
                 </div>
-              );
+              
             })}
           </div>
           </div>
